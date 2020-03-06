@@ -51,7 +51,7 @@ class Sidebars extends Component {
               <ul className="navbar-nav">
 
                 <li className="nav-item  active ">
-                  <div onClick={this.handleNavbar} id='dash_drop' className={this.state.active === 'dash_drop' ? "nav-link active collapsed profileBar" : "nav-link collapsed profileBar"} data-toggle="collapse" aria-expanded="true">
+                  <div onClick={this.handleNavbar} id='dash_drop' className={this.state.active === 'dash_drop' ? "nav-link active collapsed profileBar" : "nav-link profileBar"} data-toggle="collapse" aria-expanded={this.state.active === 'dash_drop' ? "true" : "false"}>
                     <i className="fa fa-home" /> Home<i className="fa fa-caret-down caret-style" />
                   </div>
                   <div id="collapseOne" className={this.state.menu.includes('dash_drop') ? "collapse show" : "collapsing"} >
