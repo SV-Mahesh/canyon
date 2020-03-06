@@ -7,7 +7,6 @@ class Sidebars extends Component {
   state = { menu: [], active: 'dashboard' };
 
   handleNavbar = e => {
-    // this.setState({ menu: e.target.id === this.state.menu ? null : e.target.id });
     if (this.state.menu.includes(e.target.id)) {
       var index = this.state.menu.indexOf(e.target.id);
       this.state.menu.splice(index, 1);

@@ -3,9 +3,36 @@ import { connect } from 'react-redux'
 
 class Navbar extends Component {
   state = { menu: false }
+
+  constructor(props) {
+    super(props);
+
+    this.setWrapperRef = this.setWrapperRef.bind(this);
+    this.handleClickOutside = this.handleClickOutside.bind(this);
+  }
+
+  componentDidMount() {
+    document.addEventListener('mousedown', this.handleClickOutside);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleClickOutside);
+  }
+
   showMenu = e => {
     this.setState({ menu: this.state.menu ? false : true });
   }
+
+  setWrapperRef(node) {
+    this.wrapperRef = node;
+  }
+
+  handleClickOutside(event) {
+    if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
+      this.setState({ menu: false });
+    }
+  }
+
   render() {
     return (
       <nav className="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
@@ -24,8 +51,9 @@ class Navbar extends Component {
             </div>
           </form>
 
-          <ul className="navbar-nav align-items-center d-none d-md-flex profileBar" onClick={this.showMenu}>
+          <ul className="navbar-nav align-items-center d-none d-md-flex profileBar" ref={this.setWrapperRef} onClick={this.showMenu}>
             <li className={this.state.menu ? "nav-item dropdown show" : "nav-item dropdown"}>
+              {/* <li className="nav-item dropdown"> */}
               <div className="nav-link pr-0" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <div className="media align-items-center">
                   <div className="media-body ml-2 d-none d-lg-block">
