@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { addassignment } from '../../../Action/assignmentAction';
 
 class Add extends Component {
-  state = { load: false, submit: false, error: false, duedate: new Date(), course: '1003 - Certificate in Business', unit: '1003 - Certificate in Business', programme: 'Certificate Courses', rego: 'Semester 1', year: '2015' };
+  state = { load: false, submit: false, error: false, duedate: new Date(), course: '1003 - Certificate in Business', unit: '1003 - Certificate in Business', programme: 'Certificate Courses', rego: 'Semester 1', year: '2015', exam: '', weight: '', marks: '', desc: '' };
 
   updateValue = (e) => this.setState({ [e.target.name]: e.target.value })
 
@@ -39,7 +39,7 @@ class Add extends Component {
       if (res.status === 200) {
         // console.log(res.data)
         this.props.addassignment(res.data);
-        this.setState({ load: false, submit: true });
+        this.setState({ load: false, submit: true, duedate: new Date(), course: '1003 - Certificate in Business', unit: '1003 - Certificate in Business', programme: 'Certificate Courses', rego: 'Semester 1', year: '2015', exam: '', weight: '', marks: '', desc: '' });
         setTimeout(() => {
           this.setState({ submit: false });
         }, 4000);
@@ -115,15 +115,15 @@ class Add extends Component {
           </div>
           <div className="col-lg-3 col-md-6">
             <label className="label-style">Exam Code</label>
-            <input type="text" name='exam' onChange={this.updateValue} className="form-control form-control-alternative" placeholder='' />
+            <input type="text" name='exam' onChange={this.updateValue} value={this.state.exam} className="form-control form-control-alternative" placeholder='' />
           </div>
           <div className="col-lg-3 col-md-6">
             <label className="label-style">Weight</label>
-            <input type="text" name='weight' onChange={this.updateValue} className="form-control form-control-alternative" placeholder='' />
+            <input type="text" name='weight' onChange={this.updateValue} value={this.state.weight} className="form-control form-control-alternative" placeholder='' />
           </div>
           <div className="col-lg-3 col-md-6">
             <label className="label-style">Total Marks</label>
-            <input type="text" name='marks' onChange={this.updateValue} className="form-control form-control-alternative" placeholder='' />
+            <input type="text" name='marks' onChange={this.updateValue} value={this.state.marks} className="form-control form-control-alternative" placeholder='' />
           </div>
           <div className="col-lg-3 col-md-6">
             <div className="form-group">
@@ -134,7 +134,7 @@ class Add extends Component {
           <div className="col-lg-12 col-md-12">
             <div className="form-group">
               <label className="label-style">Description</label>
-              <textarea type="text" name='desc' onChange={this.updateValue} className="form-control form-control-alternative" defaultValue={""} />
+              <textarea type="text" name='desc' value={this.state.desc} onChange={this.updateValue} className="form-control form-control-alternative" />
             </div>
           </div>
         </div>
