@@ -4,7 +4,7 @@ import { navbarAction } from '../../Action/assignmentAction';
 import { connect } from 'react-redux';
 
 class Sidebars extends Component {
-  state = { menu: [], active: 'dashboard' };
+  state = { menu: [], active: 'dashboard', view: null };
 
   handleNavbar = e => {
     if (this.state.menu.includes(e.target.id)) {
@@ -16,6 +16,7 @@ class Sidebars extends Component {
     }
     if (!(e.target.id === 'dash_drop' || e.target.id === 'stud_drop')) {
       this.props.navbarAction(e.target.id);
+      this.setState({ view: false });
     }
   }
 
@@ -26,7 +27,7 @@ class Sidebars extends Component {
 
           <div className="container-fluid">
 
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle navigation">
+            <button className="navbar-toggler" onClick={() => this.setState({ view: true })} type="button" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon" />
             </button>
 
@@ -34,13 +35,13 @@ class Sidebars extends Component {
               <img onClick={this.handleNavbar} id='dashboard' src="image/canyon.png" className="navbar-brand-img" alt="..." />
             </Link>
 
-            <div className="collapse navbar-collapse" id="sidenav-collapse-main">
+            <div className={this.state.view ? "collapse navbar-collapse show" : "collapse navbar-collapse"} id="sidenav-collapse-main">
               <div className="navbar-collapse-header d-md-none">
                 <div className="row">
                   <div className="col-6 collapse-brand">
                   </div>
                   <div className="col-6 collapse-close">
-                    <button type="button" className="navbar-toggler" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle sidenav">
+                    <button type="button" onClick={() => this.setState({ view: false })} className="navbar-toggler" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle sidenav">
                       <span />
                       <span />
                     </button>

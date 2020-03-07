@@ -34,8 +34,6 @@ class List extends Component {
   }
 
   render() {
-    // console.log(this.props.list)
-    // const data = this.state.data;
     let { list } = this.props;
     let fullList = list ? list.map((value, i) => {
       return (<tr key={i}>
@@ -88,8 +86,8 @@ class List extends Component {
                     <span className="sr-only">Previous</span>
                   </div>
                 </li>
-                <li className="page-item"><div className="page-link profileBar" >1</div></li>
-                <li className="page-item active"><div className="page-link profileBar" >2</div></li>
+                <li className="page-item active"><div className="page-link profileBar" >1</div></li>
+                <li className="page-item"><div className="page-link profileBar" >2</div></li>
                 <li className="page-item"><div className="page-link profileBar" >3</div></li>
                 <li className="page-item profileBar">
                   <div className="page-link">
