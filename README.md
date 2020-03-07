@@ -1,4 +1,16 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Build and Run Project
+
+Clone the project using git clone
+### `$ git clone https://github.com/SV-Mahesh/canyon.git`
+
+Then move to Cloned canyon directory
+### `$ cd canyon`
+
+Then Install all Node Module Packages using npm
+### `$ npm i`
+
+Then start Project
+### `$ npm start`
 
 ## Available Scripts
 
