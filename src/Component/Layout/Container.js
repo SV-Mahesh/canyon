@@ -51,7 +51,7 @@ class Container extends Component {
                 <Route path='/accounts'><Accounts /></Route>
                 <Route path='/receipt'><Receipt /></Route>
                 <Route path='/payment'><Payment /></Route>
-                <Route path='/assignment'><Assignment /></Route>
+                <Route path='/assignment_setup'><Assignment /></Route>
                 <Route path='/student_3'><Student3 /></Route>
                 <Route path='/student_2'><Student2 /></Route>
                 <Route path='/student_1'><Student1 /></Route>

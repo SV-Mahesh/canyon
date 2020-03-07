@@ -96,7 +96,7 @@ class Sidebars extends Component {
                 </li>
 
                 <li className="nav-item">
-                  <Link to='/assignment' onClick={this.handleNavbar} id='assignments' className={this.state.active === 'assignments' ? "nav-link active" : "nav-link"}>
+                  <Link to='/assignment_setup' onClick={this.handleNavbar} id='assignments' className={this.state.active === 'assignments' ? "nav-link active" : "nav-link"}>
                     <i className="fa fa-mobile" /> Assignments Setup
                   </Link>
                 </li>
